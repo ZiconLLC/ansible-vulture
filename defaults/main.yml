@@ -1,0 +1,18 @@
+
+vulture_user: taku
+vulture_group: taku
+
+vulture_install_dir: /opt
+vulture_config_dir: /etc/vulture
+vulture_build_dir: /opt
+vulture_log_dir: /var/log/vulture
+
+vulture_version: master
+
+vulture_github_keyfile: /root/.ssh/provision/taku-aws-vulture
+vulture_go_version: 1.4.2
+
+vulture_service_name: vulture
+
+vulture_config_environment: production
+vulture_config_port: 3000

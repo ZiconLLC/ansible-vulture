@@ -1,0 +1,14 @@
+---
+
+- name: service - setup and run
+  runit:
+    name: "{{ vulture_service_name }}"
+    enabled: yes
+    state: up
+    timeout: 10
+    user: "{{ vulture_user }}"
+    command: "cave -config {{ vulture_config_dir }}/config.json
+    env_vars:
+      GOMAXPROCS: "{{ansible_processor_cores + 1}}"
+  register: takuapi_service_status
+

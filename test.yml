@@ -1,0 +1,6 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - role: vulture
+      vulture_github_keyfile: ~/.ssh/taku/provision/taku-aws-vulture
