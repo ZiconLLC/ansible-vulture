@@ -1,31 +1,29 @@
 ---
-dependencies: 
+dependencies:
+  - role: gotansible.runit
+  - role: gotansible.imaging-packages
   - role: gotansible.gobuild
+    gobuild_repo_url: "ssh://git@github.com/ZiconLLC/vulture.git"
     gobuild_project_path: github.com/ziconllc/vulture
     gobuild_deploy_dest: "{{ vulture_install_dir }}"
     gobuild_go_version: "{{ vulture_go_version }}"
     gobuild_repo_version: "{{ vulture_version }}"
     gobuild_keyfile: "{{ vulture_github_keyfile }}"
+    gobuild_keyfile_local: "{{ vulture_keyfile_local }}"
+    gobuild_key_global: true
+    gobuild_commands:
+      - make install
 
 galaxy_info:
-  author: your name
+  author: Franklin Wise
   description: 
-  company: your company (optional)
+  company: 
   license: license (GPLv2, CC-BY, etc)
   min_ansible_version: 1.8
-  #platforms:
-  #- name: Ubuntu
-  #  versions:
-  #  - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-  #  - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-  #  - trusty
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
   #- name: Debian
   #  versions:
   #  - all

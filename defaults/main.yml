@@ -10,9 +10,32 @@ vulture_log_dir: /var/log/vulture
 vulture_version: master
 
 vulture_github_keyfile: /root/.ssh/provision/taku-aws-vulture
+vulture_keyfile_local: ''
 vulture_go_version: 1.4.2
 
 vulture_service_name: vulture
 
 vulture_config_environment: production
 vulture_config_port: 3000
+
+vulture_couchbase_bucket: production
+
+vulture_couchbase_hosts:
+  - 127.0.0.1
+
+vulture_kafka_hosts:
+  - 127.0.0.1
+
+vulture_zookeeper_hosts:
+  - 127.0.0.1
+
+vulture_redis_stream_hosts:
+  - host: "127.0.0.1"
+    primary: true
+
+vulture_redis_hosts:
+  - host: "127.0.0.1"
+    primary: true
+
+vulture_node_count: 1
+vulture_node_number: 1

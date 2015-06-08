@@ -1,0 +1,18 @@
+<!-- https://github.com/cihub/seelog/wiki/Format-reference -->
+<seelog minlevel="debug">
+    <outputs formatid="json">
+        <console />
+  		<rollingfile type="size" filename="{{ vulture_log_dir }}/app.log" maxsize="10200300" maxrolls="2" />
+    </outputs>
+	<formats>
+    	<format id="json"
+		format="{&quot;when&quot;:&quot;%UTCDate(2006-01-02T15:04.05Z)&quot;
+	,&quot;level&quot;:&quot;%Level&quot;
+	,&quot;json&quot;:%Msg
+	,&quot;file&quot;:&quot;%File&quot;
+	,&quot;func&quot;:&quot;%FuncShort&quot;
+	,&quot;line&quot;:&quot;%Line&quot;
+	}%n"/>
+	</formats>
+</seelog>
+

@@ -1,0 +1,56 @@
+{
+	"app" : {
+		"environment" : "{{ vulture_config_environment }}",
+		"name" : "vulture"
+	},
+	"concurrency" : {
+		"myId" : {{ vulture_node_number }},
+		"count" : {{ vulture_node_count }}
+	},
+	"s3bucket" : "img.takuapp.com",
+	"resourceRoot" : "",
+	"traceMessagePath" : "{{ vulture_log_dir }}/trace.log",
+	"loggingConfigPath" : "{{ vulture_config_dir }}/logconf.xml",
+	"redisImages" : [
+	{%- for node in vulture_redis_hosts -%}
+		{% if loop.index0 > 0 %},{% endif %}
+		{
+			"host" : "{{ node.host }}:6379",
+			"primary" : {{ (node.primary | ternary('true', 'false'))|lower }}
+		}
+	{% endfor %}
+	],
+	"redisStream" : [
+	{%- for node in vulture_redis_stream_hosts -%}
+		{% if loop.index0 > 0 %},{% endif %}
+		{
+			"host" : "{{ node.host }}:6379",
+			"primary" : {{ (node.primary | ternary('true', 'false'))|lower }}
+		}
+	{% endfor %}
+	],
+	"kafka" : [
+	{% for host in vulture_kafka_hosts %}
+	{% if loop.index0 > 0 %},{% endif %}
+	"{{ host }}:9092"
+	{% endfor %}
+	],
+	"zookeeper" : [
+	{% for host in vulture_zookeeper_hosts %}
+	{% if loop.index0 > 0 %},{% endif %}
+	"{{ host }}:2181"
+	{% endfor %}
+	],
+	"couchbase" : {
+		"bucketName" : "<%= node[:stack][:environment]%>",
+		"urls" :
+		[
+		{% for host in vulture_couchbase_hosts %}
+		{% if loop.index0 > 0 %},{% endif %}
+		"http://{{ host }}:8091/"
+		{% endfor %}
+		]
+	}
+}
+
+

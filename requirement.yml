@@ -1,0 +1,5 @@
+---
+
+- src: https://github.com/gotansible/gobuild
+  name: gotansible.gobuild
+  path: /etc/ansible/roles/

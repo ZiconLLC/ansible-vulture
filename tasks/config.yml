@@ -1,5 +1,17 @@
 ---
 
+- name: install - create group
+  group:
+    name={{ vulture_group }}
+    system=yes
+
+- name: install - create user
+  user:
+    name={{ vulture_user }}
+    group={{ vulture_group }}
+    system=yes
+    createhome=no
+
 - name: config - create config dir
   file:
     state=directory

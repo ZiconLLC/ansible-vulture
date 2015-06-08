@@ -1,6 +1,10 @@
 ---
 - hosts: all
   sudo: true
+
+  vars:
+    vulture_github_keyfile: ~/.ssh/provision/taku-aws-zicobuild-2015
+    vulture_keyfile_local: ~/.ssh/taku/provision/taku-aws-zicobuild-2015
+
   roles:
-    - role: vulture
-      vulture_github_keyfile: ~/.ssh/taku/provision/taku-aws-vulture
+    - role: ansible-vulture
