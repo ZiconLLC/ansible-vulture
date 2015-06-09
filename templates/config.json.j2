@@ -42,7 +42,7 @@
 	{% endfor %}
 	],
 	"couchbase" : {
-		"bucketName" : "<%= node[:stack][:environment]%>",
+		"bucketName" : "{{ vulture_couchbase_bucket }}",
 		"urls" :
 		[
 		{% for host in vulture_couchbase_hosts %}
