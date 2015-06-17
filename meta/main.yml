@@ -13,6 +13,7 @@ dependencies:
     gobuild_key_global: true
     gobuild_commands:
       - make install
+      - sudo sv stop vulture
 
 galaxy_info:
   author: Franklin Wise
