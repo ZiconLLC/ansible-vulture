@@ -7,6 +7,7 @@ vulture_config_dir: /etc/vulture
 vulture_build_dir: /opt
 vulture_log_dir: /var/log/vulture
 
+vulture_s3_bucket: images.takuapp.com
 vulture_version: master
 
 vulture_github_keyfile: /root/.ssh/provision/taku-aws-vulture
