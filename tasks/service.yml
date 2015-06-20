@@ -4,7 +4,7 @@
   runit:
     name: "{{ vulture_service_name }}"
     enabled: yes
-    state: up
+    state: start
     timeout: 10
     user: "{{ vulture_user }}"
     command: "{{vulture_install_dir}}/vulture/vulture -config {{ vulture_config_dir }}/config.json"
