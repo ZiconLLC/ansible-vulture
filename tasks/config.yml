@@ -1,11 +1,11 @@
 ---
 
-- name: install - create group
+- name: config - create group
   group:
     name={{ vulture_group }}
     system=yes
 
-- name: install - create user
+- name: config - create user
   user:
     name={{ vulture_user }}
     group={{ vulture_group }}
