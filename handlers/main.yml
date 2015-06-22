@@ -1,11 +1,6 @@
 ---
 
 - name: restart vulture
-  runit:
-    name={{ vulture_service_name }}
-    action=restart
-    state=up
-    enabled=true
-    timeout=9
+  shell: sv restart {{ vulture_service_name }}
   when: not vulture_service_status.restarted
 
