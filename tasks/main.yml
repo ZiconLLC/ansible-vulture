@@ -2,10 +2,15 @@
 
 - name: dependencies
   include: depend.yml
+  tags:
+    - install
 
 - name: configure
   include: config.yml
+  tags:
+    - config
 
 - name: service
   include: service.yml
-
+  tags:
+    - service

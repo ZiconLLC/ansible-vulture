@@ -2,7 +2,11 @@
 dependencies:
   - role: gotansible.runit
   - role: gotansible.imaging-packages
+    tags:
+      - install
   - role: gotansible.gobuild
+    tags:
+      - install
     gobuild_repo_url: "ssh://git@github.com/ZiconLLC/vulture.git"
     gobuild_project_path: github.com/ziconllc/vulture
     gobuild_deploy_dest: "{{ vulture_install_dir }}"
